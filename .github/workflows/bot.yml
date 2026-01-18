@@ -16,23 +16,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Debug workspace
-        run: |
-          echo "PWD:"
-          pwd
-          echo "LS:"
-          ls -la
-          echo "LS ROOT:"
-          ls -la /home/runner/work
-          echo "LS PROJECT:"
-          ls -la /home/runner/work/telegram-news-bot
-          echo "LS PROJECT ROOT:"
-          ls -la /home/runner/work/telegram-news-bot/telegram-news-bot
-
-      - name: Install dependencies (ABSOLUTE PATH)
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r /home/runner/work/telegram-news-bot/telegram-news-bot/requirements.txt
+          pip install -r bot/requirements.txt
 
       - name: Run bot
         env:
